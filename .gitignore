@@ -1,0 +1,10 @@
+build*.log
+*.swp
+.project
+.settings
+.classpath
+.factorypath
+.checkstyle
+.pmd
+.pmdruleset.xml
+target
