@@ -1,4 +1,4 @@
-package de.comdirect.collabothon;
+package de.comdirect.collabothon2016.depotengine;
 
 import java.util.Arrays;
 

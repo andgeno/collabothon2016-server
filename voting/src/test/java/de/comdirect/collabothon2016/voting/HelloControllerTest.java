@@ -1,4 +1,4 @@
-package de.comdirect.collabothon;
+package de.comdirect.collabothon2016.voting;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;

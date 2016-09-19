@@ -1,4 +1,4 @@
-package de.comdirect.collabothon;
+package de.comdirect.collabothon2016.voting;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
