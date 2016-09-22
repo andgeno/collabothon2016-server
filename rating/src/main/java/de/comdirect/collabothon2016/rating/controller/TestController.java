@@ -5,8 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import de.comdirect.collabothon2016.depotengine.data.Test;
 import de.comdirect.collabothon2016.rating.data.TestString;
 
 @RestController
