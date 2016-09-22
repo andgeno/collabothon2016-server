@@ -4,5 +4,5 @@ import java.util.List;
 
 public class Group {
 	private long id;
-	private List<User> users;
+	private List<Nutzer> users;
 }

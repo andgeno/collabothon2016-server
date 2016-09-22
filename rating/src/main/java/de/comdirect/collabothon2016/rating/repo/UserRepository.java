@@ -4,16 +4,16 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import de.comdirect.collabothon2016.rating.data.User;
+import de.comdirect.collabothon2016.rating.data.Nutzer;
 
 @Component
 public class UserRepository {
 	
-	public User getUser(long userId){
+	public Nutzer getUser(long userId){
 		return null;
 	}
 	
-	public List<User> getUsers(long groupId){
+	public List<Nutzer> getUsers(long groupId){
 		return null;
 	}
 }
