@@ -1,6 +1,6 @@
-package de.comdirect.collabothon2016.depotengine.data;
+package de.comdirect.collabothon2016.rating.data;
 
-public class Test {
+public class TestString {
 
 	private String info;
 	
@@ -14,7 +14,7 @@ public class Test {
 		this.info = info;
 	}
 
-	public Test(String info){
+	public TestString(String info){
 		this.info=info;
 	}
 	
@@ -34,7 +34,7 @@ public class Test {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Test other = (Test) obj;
+		TestString other = (TestString) obj;
 		if (info == null) {
 			if (other.info != null)
 				return false;
