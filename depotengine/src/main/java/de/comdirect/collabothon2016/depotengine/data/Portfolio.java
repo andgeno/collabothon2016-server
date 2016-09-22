@@ -1,6 +1,6 @@
 package de.comdirect.collabothon2016.depotengine.data;
 
-import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Portfolio{
@@ -8,9 +8,14 @@ public class Portfolio{
 	private String portfolioNumber;
 	private String customerNumber;
 	private String capitalAccountNumber;
-//	private List<PortfolioPosition> portfolioPositions;
+	private double portfolioValue;
+	private List<PortfolioPosition> portfolioPositions = new ArrayList<>();
+	
 	public String getPortfolioNumber() {
 		return portfolioNumber;
+	}
+	public void add(PortfolioPosition position){
+		portfolioPositions.add(position);
 	}
 	public void setPortfolioNumber(String portfolioNumber) {
 		this.portfolioNumber = portfolioNumber;
@@ -27,11 +32,19 @@ public class Portfolio{
 	public void setCapitalAccountNumber(String capitalAccountNumber) {
 		this.capitalAccountNumber = capitalAccountNumber;
 	}
-//	public List<PortfolioPosition> getPortfolioPositions() {
-//		return portfolioPositions;
-//	}
-//	public void setPortfolioPositions(List<PortfolioPosition> portfolioPositions) {
-//		this.portfolioPositions = portfolioPositions;
-//	}
+	public List<PortfolioPosition> getPortfolioPositions() {
+		return portfolioPositions;
+	}
+	public void setPortfolioPositions(List<PortfolioPosition> portfolioPositions) {
+		this.portfolioPositions = portfolioPositions;
+	}
+	public double getPortfolioValue() {
+		return portfolioValue;
+	}
+	public void setPortfolioValue(double portfolioValue) {
+		this.portfolioValue = portfolioValue;
+	}
+	
+	
 	
 }

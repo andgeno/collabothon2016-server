@@ -27,6 +27,7 @@ public class RatingController {
 	@RequestMapping(method=RequestMethod.GET, path="/user/{id}")
 	public ResponseEntity<Long> getRating(@PathVariable(value="id")long userId){
 		//repo.getUser(userId);//.getScore;
+		System.out.println("user for number " + userId);
 		return new ResponseEntity<Long>(userId, HttpStatus.OK);
 	}
 	
