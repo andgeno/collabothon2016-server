@@ -26,6 +26,6 @@ public class RatingController {
 	
 	@RequestMapping(method=RequestMethod.GET, path="/groups/rank/{groupId}")
 	public Map<User,Score> getGroupRatings(@RequestParam(value="groupId")long groupId){
-		return 13;
+		return null;
 	}
 }
