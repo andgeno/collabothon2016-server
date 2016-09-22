@@ -1,6 +1,8 @@
 package de.comdirect.collabothon2016.rating.data;
 
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Group {
 	private long id;
@@ -15,7 +17,8 @@ public class Group {
 		this.groupname = name;
 	}
 
-	private Map<Nutzer,GroupScore> usersScores;
+	private Map<Nutzer,GroupScore> userScores;
+	private List<Nutzer> user;
 	private String interval;
 	private int amount;
 	private String nextPeriod;
@@ -23,21 +26,31 @@ public class Group {
 	private long amount_overall;
 	
 	
-	public Group(long id,String groupname, Map<Nutzer,GroupScore> usersScores, String interval, int amount, String nextPeriod, String investingSince, long amount_overall){
+	public Group(long id,String groupname, Map<Nutzer,GroupScore> userScores, String interval, int amount, String nextPeriod, String investingSince, long amount_overall){
 		this.id = id;
 		this.groupname=groupname;
-		this.usersScores = usersScores;
+		this.userScores = userScores;
 		this.interval=interval;
 		this.amount=amount;
 		this.nextPeriod = nextPeriod;
 		this.investingSince=investingSince;
 		this.amount_overall = amount_overall;
+		user = userScores.keySet().stream().collect(Collectors.toList());
 	}
 
 	
 	public Group(long id, Map<Nutzer,GroupScore> usersScores){
 		this.id = id;
-		this.usersScores = usersScores;
+		this.userScores = usersScores;
+	}
+	
+	public List<Nutzer> getUser() {
+		return user;
+	}
+
+
+	public void setUser(List<Nutzer> user) {
+		this.user = user;
 	}
 
 	public long getId() {
@@ -48,13 +61,10 @@ public class Group {
 		this.id = id;
 	}
 
-	public Map<Nutzer,GroupScore> getUsers() {
-		return usersScores;
+	public Map<Nutzer,GroupScore> getUserScore() {
+		return userScores;
 	}
 
-	public void setUsersScores(Map<Nutzer,GroupScore> usersScores) {
-		this.usersScores = usersScores;
-	}
 
 	public String getInterval() {
 		return interval;
@@ -86,10 +96,6 @@ public class Group {
 
 	public void setAmountOverall(long amount_overall) {
 		this.amount_overall = amount_overall;
-	}
-
-	public Map<Nutzer, GroupScore> getUsersScores() {
-		return usersScores;
 	}
 
 	public String getInvestingSince() {

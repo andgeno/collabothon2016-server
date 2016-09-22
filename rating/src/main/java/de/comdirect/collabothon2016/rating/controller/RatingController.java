@@ -34,6 +34,6 @@ public class RatingController {
 	@RequestMapping(method=RequestMethod.GET, path="/groups/rank/{groupId}")
 	public ResponseEntity<Group> getGroupRatings(@PathVariable(value="groupId")int groupId){
 		
-		return new ResponseEntity<>(UserController.groups.get(groupId), HttpStatus.OK);
+		return new ResponseEntity<>(UserController.groups.get(groupId+1), HttpStatus.OK);
 	}
 }

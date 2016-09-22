@@ -49,14 +49,13 @@ public class UserController {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public ResponseEntity<List<Group>> getGroups(){	
-		System.out.println("i am being called");
+	public ResponseEntity<List<Group>> getGroups(){
 		return new ResponseEntity<>(groups, HttpStatus.OK);
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, path="/join/{groupId}/{userId}")
 	public void joinGroup(@PathVariable(value="groupId") int groupId,@PathVariable(value="userId") int userId){	
-		Map<Nutzer,GroupScore> usersScores = groups.get(groupId-1).getUsers();
-		usersScores.put(new Nutzer(userId, 0L, "Test"), new GroupScore(0L));
+//		Map<Nutzer,GroupScore> usersScores = groups.get(groupId-1).getUser();
+//		usersScores.put(new Nutzer(userId, 0L, "Test"), new GroupScore(0L));
 	}
 }
