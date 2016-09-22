@@ -1,6 +1,5 @@
 package de.comdirect.collabothon2016.depotengine.data;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
