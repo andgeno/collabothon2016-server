@@ -9,7 +9,9 @@ public class Portfolio{
 	private String portfolioNumber;
 	private String customerNumber;
 	private String capitalAccountNumber;
+	private double portfolioValue;
 	private List<PortfolioPosition> portfolioPositions = new ArrayList<>();
+	
 	public String getPortfolioNumber() {
 		return portfolioNumber;
 	}
@@ -37,5 +39,13 @@ public class Portfolio{
 	public void setPortfolioPositions(List<PortfolioPosition> portfolioPositions) {
 		this.portfolioPositions = portfolioPositions;
 	}
+	public double getPortfolioValue() {
+		return portfolioValue;
+	}
+	public void setPortfolioValue(double portfolioValue) {
+		this.portfolioValue = portfolioValue;
+	}
+	
+	
 	
 }

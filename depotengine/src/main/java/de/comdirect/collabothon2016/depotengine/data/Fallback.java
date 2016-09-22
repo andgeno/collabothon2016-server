@@ -3,7 +3,7 @@ package de.comdirect.collabothon2016.depotengine.data;
 
 public class Fallback {
 
-	public Portfolio getFallback()
+	public static Portfolio getFallback()
 	{
 		Portfolio portfolio = new Portfolio();
 		
@@ -16,7 +16,7 @@ public class Fallback {
 		return portfolio;
 	}
 
-	private PortfolioPosition createPostion( long amount, String wkn) {
+	private static PortfolioPosition createPostion( long amount, String wkn) {
 		PortfolioPosition portfolioPosition = new PortfolioPosition();
 		portfolioPosition.setAmount(amount);
 		portfolioPosition.setWkn(wkn);

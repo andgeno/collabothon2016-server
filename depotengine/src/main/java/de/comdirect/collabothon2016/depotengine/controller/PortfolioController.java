@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import de.comdirect.collabothon2016.depotengine.data.Fallback;
 import de.comdirect.collabothon2016.depotengine.data.Portfolio;
 import de.comdirect.collabothon2016.depotengine.data.PortfolioPosition;
 
@@ -18,6 +19,21 @@ import de.comdirect.collabothon2016.depotengine.data.PortfolioPosition;
 public class PortfolioController {
 
 	private Map<String, String> groupToPortfolionumber = new HashMap<>();
+	
+	@RequestMapping(method=RequestMethod.POST, path="/portfolio/group/{groupid}/portfolio/{portfolioid}")
+	public ResponseEntity<Long> registerVotingGroup(@PathVariable(value="groupid") long groupid, @PathVariable(value="portfolioid")  String portfolioId){
+		if (groupToPortfolionumber.containsKey("" + groupid) || groupToPortfolionumber.containsValue(portfolioId)){
+			System.out.println("double groupId and portfolioid");
+			return new ResponseEntity<>(HttpStatus.PRECONDITION_FAILED);
+		}else{
+			if (!checkContractForPortfolioProvisioning("" + groupid, portfolioId)){
+				return new ResponseEntity<>(HttpStatus.PRECONDITION_FAILED);
+			}
+			System.out.println("Now, portfolio is blocked for user transactions");
+			groupToPortfolionumber.put("" + groupid, portfolioId);
+			return new ResponseEntity<Long>(groupid, HttpStatus.CREATED);
+		}
+	}
 	
 	@RequestMapping(method=RequestMethod.GET, path="/portfolio/{groupid}")
 	public ResponseEntity<Portfolio> getPortfolio(@PathVariable(value="groupid") long groupid){
@@ -27,35 +43,38 @@ public class PortfolioController {
 		depotnumber = groupToPortfolionumber.get("" + groupid);
 		
 		
-		if (depotnumber == null){
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+//		if (depotnumber == null){
+//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//		}
 		
 		
 		
-		Portfolio portfolio = new Portfolio();
-		portfolio.setPortfolioNumber("1234");
-		portfolio.setCapitalAccountNumber("134500");
-		portfolio.setCustomerNumber("1234");
-		
-		PortfolioPosition position = new PortfolioPosition();
-		position.setAmount(1);
-		position.setWkn("111111");
-		portfolio.add(position);
-		
-		position = new PortfolioPosition();
-		position.setAmount(2);
-		position.setWkn("222222");
-		portfolio.add(position);
+		Portfolio portfolio = readPortfolio(depotnumber);
 		
 		
 		
 		return new ResponseEntity<Portfolio>(portfolio, HttpStatus.OK);
 	}
 
-	private void foo(String depotnumber){
-		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.getForObject("https://cdavmd01.northeurope.cloudapp.azure.com/api/v1/sicherheit/sessions", Long.class);
+	private Portfolio readPortfolio(String depotnumber){
+//		RestTemplate restTemplate = new RestTemplate();
+//		restTemplate.getForObject("https://cdavmd01.northeurope.cloudapp.azure.com/api/v1/sicherheit/sessions", Long.class);
+		
+		
+		
+		return Fallback.getFallback();
+	}
+	
+	private boolean checkContractForPortfolioProvisioning(String groupid, String portfolioid){
+		System.out.println("Checking smart contract for provision portfolio for group");
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("OK, all attendies confirmed contract");
+		return true;
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, path="/portfolio/number/{groupid}")
