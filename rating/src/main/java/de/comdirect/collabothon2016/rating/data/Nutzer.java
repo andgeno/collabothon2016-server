@@ -14,6 +14,11 @@ public class Nutzer {
 		this.name=name;
 	}
 	
+	public Nutzer(long nutzerId, long globalScore){
+		this.nutzerId=nutzerId;
+		this.globalScore=globalScore;
+	}
+	
 
 	public long getNutzerId() {
 		return nutzerId;

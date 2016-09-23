@@ -39,9 +39,10 @@ public class Group {
 	}
 
 	
-	public Group(long id, Map<Nutzer,GroupScore> usersScores){
+	public Group(long id,String groupname, Map<Nutzer,GroupScore> usersScores){
 		this.id = id;
 		this.userScores = usersScores;
+		this.groupname=groupname;
 	}
 	
 	public List<Nutzer> getUser() {

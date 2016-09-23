@@ -32,20 +32,20 @@ public class UserController {
 		group.put(new Nutzer(1L, 100L, "Terminator"), new GroupScore(100));
 		group.put(new Nutzer(2L, 100L, "Walter"), new GroupScore(90));
 		group.put(new Nutzer(3L, 100L, "Vader"), new GroupScore(80));
-//		//Group 2.
-//		Map<Nutzer, GroupScore> group2 = new HashMap<>();
-//		group2.put(new Nutzer(4, 100), new GroupScore(100));
-//		group2.put(new Nutzer(5, 100), new GroupScore(90));
-//		group2.put(new Nutzer(6, 100), new GroupScore(80));
-//		//Group 3.
-//		Map<Nutzer, GroupScore> group3 = new HashMap<>();
-//		group3.put(new Nutzer(7, 100), new GroupScore(100));
-//		group3.put(new Nutzer(8, 100), new GroupScore(90));
-//		group3.put(new Nutzer(9, 100), new GroupScore(80));
+		//Group 2.
+		Map<Nutzer, GroupScore> group2 = new HashMap<>();
+		group2.put(new Nutzer(4L, 100, "Jens"), new GroupScore(100));
+		group2.put(new Nutzer(5L, 100, "Jan"), new GroupScore(90));
+		group2.put(new Nutzer(6L, 100, "Sasha"), new GroupScore(80));
+		//Group 3.
+		Map<Nutzer, GroupScore> group3 = new HashMap<>();
+		group3.put(new Nutzer(7L, 100, "Bernd"), new GroupScore(100));
+		group3.put(new Nutzer(8L, 100, "Moritz"), new GroupScore(90));
+		group3.put(new Nutzer(9L, 100, "Sager"), new GroupScore(80));
 		
 		groups.add(new Group(1,"The Great Investor Collective", group, "m", 100, "7d 18h 35m 14s", "2016-03-17", 400));
-//		groups.add(new Group(2, group2));
-//		groups.add(new Group(3, group3));
+		groups.add(new Group(2,"Secret Investments", group2));
+		groups.add(new Group(3,"Happy go lucky fellows", group3));
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
