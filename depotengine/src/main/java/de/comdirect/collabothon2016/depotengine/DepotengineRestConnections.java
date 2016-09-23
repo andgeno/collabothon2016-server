@@ -4,7 +4,7 @@ public interface DepotengineRestConnections {
 
 	public static final String URL = "https://cdavmd01.northeurope.cloudapp.azure.com";
 	public static final String URL_VOTING = "http://localhost:8081";
-	public static final String UTL_USER = "http://localhost:8090";
+	public static final String URL_USER = "http://localhost:8090";
 	
 	public static final String PATH_LOGIN = "/api/v1/sicherheit/sessions";
 	public static final String PATH_PORTFOLIO = "/api/v1/depotvw/depots/";
