@@ -46,9 +46,9 @@ public class UserController {
 		String infoGroup1 = "Let's go for Tesla, Netflix and Facebook";
 		String infoGroup2 = "Let's have a real impact with our investments - for us and following generations";	
 		String infoGroup3 = "We invest in the global fashion business; I see high potential for LVMH";
-		groups.add(new Group(1,"New Technology Club", infoGroup1, group, "m", 100, "27d 11h 35m 35s", "2016-03-17", 400));
-		groups.add(new Group(2,"Renewable energies", infoGroup2, group2, "m", "7d 8h 35m 23s", "2016-02-17"));
-		groups.add(new Group(3,"Fashion and Luxury", infoGroup3, group3, "m", "4d 18h 37m 36s", "2016-06-17"));
+		groups.add(new Group(1,"New Technology Club", infoGroup1, group, "m", 100, "27d 11h", "2016-03-17", 400));
+		groups.add(new Group(2,"Renewable energies", infoGroup2, group2, "m", "7d 8h", "2016-02-17"));
+		groups.add(new Group(3,"Fashion and Luxury", infoGroup3, group3, "m", "4d 18h", "2016-06-17"));
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
