@@ -32,6 +32,9 @@ public class UserController {
 		group.put(new Nutzer(1L, 100L, "Terminator"), new GroupScore(100));
 		group.put(new Nutzer(2L, 100L, "Walter"), new GroupScore(90));
 		group.put(new Nutzer(3L, 100L, "Vader"), new GroupScore(80));
+		group.put(new Nutzer(10L, 0L, "Gabi"), new GroupScore(70));
+		group.put(new Nutzer(11L, 0L, "Wilhelm"), new GroupScore(60));
+		
 		//Group 2.
 		Map<Nutzer, GroupScore> group2 = new HashMap<>();
 		group2.put(new Nutzer(4L, 100, "Jens"), new GroupScore(100));
