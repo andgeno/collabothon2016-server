@@ -115,9 +115,9 @@ public class Fallback {
 		leaderBoard.add(entry);
 		
 		entry = new LeaderBoardEntry();
-		entry.setNutzerId(4);
+		entry.setNutzerId(5);
 		entry.setPerformance(-3.3);
-		entry.setPosition(4);
+		entry.setPosition(5);
 		entry.setName("Richard");
 		leaderBoard.add(entry);
 		
