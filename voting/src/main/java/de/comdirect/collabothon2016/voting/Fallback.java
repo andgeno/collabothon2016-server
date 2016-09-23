@@ -84,19 +84,21 @@ public class Fallback {
 	}
 
 	public static HashMap<Long, List<LeaderBoardEntry>> getLeaderBoard() {
-		LeaderBoardEntry entry = new LeaderBoardEntry();
 		List<LeaderBoardEntry> leaderBoard = new ArrayList<>();
 
+		LeaderBoardEntry entry = new LeaderBoardEntry();
 		entry.setNutzerId(1);
 		entry.setPerformance(12.21);
-		entry.setPosition(0);
-		leaderBoard.add(entry);
-
-		entry.setNutzerId(2);
-		entry.setPerformance(9.7);
 		entry.setPosition(1);
 		leaderBoard.add(entry);
 
+		entry = new LeaderBoardEntry();
+		entry.setNutzerId(2);
+		entry.setPerformance(9.7);
+		entry.setPosition(2);
+		leaderBoard.add(entry);
+
+		entry = new LeaderBoardEntry();
 		entry.setNutzerId(3);
 		entry.setPerformance(-2.3);
 		entry.setPosition(3);
