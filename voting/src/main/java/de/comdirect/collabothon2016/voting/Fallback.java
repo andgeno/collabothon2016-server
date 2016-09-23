@@ -3,8 +3,10 @@ package de.comdirect.collabothon2016.voting;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import de.comdirect.collabothon2016.data.InvestmentSuggestion;
+import de.comdirect.collabothon2016.data.Voting;
 
 public class Fallback {
 
@@ -18,10 +20,23 @@ public class Fallback {
 		
 		List<InvestmentSuggestion> investmentSuggestions = new ArrayList<>();
 		HashMap<Long,List<InvestmentSuggestion>> s = new HashMap<Long,List<InvestmentSuggestion>>();
-		
-		investmentSuggestions.add(suggestion);
 		s.put(1000L, investmentSuggestions);
+		investmentSuggestions.add(suggestion);
 		return s;
+	}
+	
+	public static Map<Long, Voting> getVoting(HashMap<Long, List<InvestmentSuggestion>> suggestions){
+		Map<Long, Voting> votings = new HashMap<>();
+		for (Long groupId : suggestions.keySet()){
+			Voting voting = new Voting();
+			voting.setGroupId("" + groupId);
+			voting.setActive(true);
+			voting.setInvestmentSuggestions(suggestions.get(groupId));
+			votings.put(groupId, voting);
+		}
+		
+		return votings;
+		
 	}
 	
 }

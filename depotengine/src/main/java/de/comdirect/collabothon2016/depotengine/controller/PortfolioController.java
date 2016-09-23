@@ -97,6 +97,8 @@ public class PortfolioController {
 	@RequestMapping(method=RequestMethod.POST, path="/portfolio/group/{groupid}/voting/{votingid}/order")
 	public ResponseEntity<Void> signalVotingResult(long groupId){
 		// 1 : fetch the voting results
+		restOperations.getForEntity(DepotengineRestConnections.URL_VOTING + DepotengineRestConnections.PATH_GET_VOTINGWINNER + groupId, 
+		
 		// 2 : check the contract for group-provisioning
 		// 3 : check the contract for paying
 		// 4 : check the block-chain-payment
