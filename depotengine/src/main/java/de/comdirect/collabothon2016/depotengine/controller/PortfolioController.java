@@ -35,19 +35,7 @@ import de.comdirect.collabothon2016.depotengine.data.SecurityLoginInformation;
 import de.comdirect.collabothon2016.depotengine.data.SecurityLoginInformationTO;
 
 /**
- * KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
-keyStore.load(new FileInputStream(new File("keystore.jks")),
-        "secret".toCharArray());
-SSLConnectionSocketFactory socketFactory = new SSLConnectionSocketFactory(
-        new SSLContextBuilder()
-                .loadTrustMaterial(null, new TrustSelfSignedStrategy())
-                .loadKeyMaterial(keyStore, "password".toCharArray()).build());
-HttpClient httpClient = HttpClients.custom().setSSLSocketFactory(socketFactory).build();
-ClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory(
-        httpClient);
-RestTemplate restTemplate = new RestTemplate(requestFactory);
-ResponseEntity<String> response = restTemplate.getForEntity(
-        "https://localhost:8443", String.class);
+ * 
  * @author A4595419
  *
  */
@@ -57,6 +45,7 @@ public class PortfolioController {
 	@Autowired
 	RestOperations restOperations;
 
+	// the database ... :)
 	private Map<String, String> groupToPortfolionumber = new HashMap<>();
 	private Map<String, DepotuserCredentials> portfolionumberToCredentials = new HashMap<>();
 	private Map<String, String> groupToOpenVotings = new HashMap<>();
@@ -87,6 +76,12 @@ public class PortfolioController {
 		}
 	}
 	
+	@RequestMapping(method=RequestMethod.POST, path="/portfolio/{groupid}/payment")
+	public ResponseEntity<Void> makePayment(@PathVariable(value="groupid") long groupId){
+		RestClient.makePayment(groupId);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
 	/**
 	 * The voting system may send a signal, so that the portfolio manager will gather the voting and
 	 * make an order.
@@ -95,10 +90,19 @@ public class PortfolioController {
 	 * @return nothing to say
 	 */
 	@RequestMapping(method=RequestMethod.POST, path="/portfolio/group/{groupid}/voting/{votingid}/order")
-	public ResponseEntity<Void> signalVotingResult(long groupId){
+	public ResponseEntity<Void> signalVotingResult(@PathVariable(value="groupid") long groupId,@PathVariable(value="votingid") long votingId){
 		// 1 : fetch the voting results
+//		restOperations.getForEntity(DepotengineRestConnections.URL_VOTING + DepotengineRestConnections.PATH_GET_VOTINGWINNER + groupId; 
+		
 		// 2 : check the contract for group-provisioning
 		// 3 : check the contract for paying
+		
+		boolean paymentDone = RestClient.checkPayment(groupId);
+		RestClient.makePayment(groupId);
+		if (!paymentDone){
+			System.out.println("Payment isnt done yet");
+			return new ResponseEntity<>(HttpStatus.DESTINATION_LOCKED);
+		}
 		// 4 : check the block-chain-payment
 		
 		// build orders

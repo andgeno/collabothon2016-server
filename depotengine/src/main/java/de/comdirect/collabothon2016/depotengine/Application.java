@@ -21,7 +21,7 @@ public class Application {
       for (String beanName : beanNames) {
          System.out.println(beanName);
       }
-      System.out.println(RestClient.askRating() + "wow");
+      //System.out.println(RestClient.askRating() + "wow");
    }
 
 }

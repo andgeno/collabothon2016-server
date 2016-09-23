@@ -8,13 +8,16 @@ public class RestClient {
 	
 	public static String makePayment(long userId){
         RestTemplate restTemplate = new RestTemplate();
-        String address = restTemplate.getForObject("http://127.0.0.1:1337/pay/" + addr, String.class);
+        String address = restTemplate.getForObject("http://172.31.124.69:1337/pay/" + addr, String.class);
+//        String address = restTemplate.getForObject("http://127.0.0.1:1337/pay/" + addr, String.class);
         return (address);
 	}
 	
-	public static String checkPayment(long userId){
+	public static boolean checkPayment(long userId){
         RestTemplate restTemplate = new RestTemplate();
-        boolean check = restTemplate.getForObject("http://127.0.0.1:1337/check/" + addr, Boolean.class);
-        return ("Hey i am calling the Blockchain " + check);
+        boolean check = restTemplate.getForObject("http://172.31.124.69:1337/check/" + addr, Boolean.class); // 172.31.124.69
+//        boolean check = restTemplate.getForObject("http://127.0.0.1:1337/check/" + addr, Boolean.class); // 172.31.124.69
+        return check;
+//        return ("Hey i am calling the Blockchain " + check);
 	}
 }

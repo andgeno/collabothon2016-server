@@ -1,3 +1,4 @@
+
 package de.comdirect.collabothon2016.rating.controller;
 
 import java.util.ArrayList;
@@ -47,11 +48,13 @@ public class UserController {
 		group3.put(new Nutzer(8L, 100, "Moritz"), new GroupScore(90));
 		group3.put(new Nutzer(9L, 100, "Sager"), new GroupScore(80));
 		
-		String infoGroup1 = "We want to invest in renewable resources. This is so awesome to do, really";
-		String infoGroup3 = "We don't care about the environment, we are in it for the money";
-		groups.add(new Group(1,"The Great Investor Collective", infoGroup1, group, "monthly", 100, "7d 18h 35m 14s", "2016-03-17", 400));
-		groups.add(new Group(2,"Secret Investments", "Confidential", group2, "monthly", "7d 18h 35m 14s", "2016-03-17"));
-		groups.add(new Group(3,"Happy go lucky fellows", infoGroup3, group3, "monthly", "7d 18h 35m 14s", "2016-03-17"));
+
+		String infoGroup1 = "Let's go for Tesla, Netflix and Facebook";
+		String infoGroup2 = "Let's have real impact with our investment - for us and following generations";
+		String infoGroup3 = "We invest in the global fashion business";
+		groups.add(new Group(1,"New Technology Club", infoGroup2, group, "monthly", 100, "7d 18h 35m 14s", "2016-03-17", 400));
+		groups.add(new Group(2,"Renewable Energies",infoGroup1, group2, "monthly", "7d 18h 35m 14s", "2016-03-17"));
+		groups.add(new Group(3,"Fashion", infoGroup3, group3, "monthly", "7d 18h 35m 14s", "2016-03-17"));
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
@@ -70,3 +73,4 @@ public class UserController {
 //		usersScores.put(new Nutzer(userId, 0L, "Test"), new GroupScore(0L));
 	}
 }
+
