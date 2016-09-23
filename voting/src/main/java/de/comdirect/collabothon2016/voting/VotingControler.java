@@ -25,6 +25,23 @@ public class VotingControler {
        private HashMap<Long,List<LeaderBoardEntry>> leaderBoard = Fallback.getLeaderBoard();
 	   private HashMap<Long,List<InvestmentSuggestion>> suggestions = Fallback.getInvestmentSuggestion();
 	   private Map<Long, Voting> votings = new HashMap<>();
+	   
+	   @RequestMapping(method=RequestMethod.POST, path="/voting/active/{groupid}")
+	   public ResponseEntity<Void> activateVoting(@PathVariable(value="groupid") long groupId){
+		   
+		   Voting voting = votings.get(groupId);
+		   if (voting==null){
+			   return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		   }
+		   
+		   if (!voting.isWaitingVorContracts() || voting.isActive()){
+			   return new ResponseEntity<>(HttpStatus.PRECONDITION_FAILED);
+		   }
+		   
+		   voting.setActive(true);
+		   voting.setWaitingVorContracts(false);
+		   return new ResponseEntity<>(HttpStatus.OK);
+	   }
 	
 		@RequestMapping(method=RequestMethod.GET, path="/user/{id}")
 		public ResponseEntity<Long> getRating(@PathVariable(value="id")long userId){

@@ -48,12 +48,14 @@ public class UserController {
 		group3.put(new Nutzer(8L, 100, "Moritz"), new GroupScore(90));
 		group3.put(new Nutzer(9L, 100, "Sager"), new GroupScore(80));
 		
+
 		String infoGroup1 = "Let's go for Tesla, Netflix and Facebook";
 		String infoGroup2 = "Let's have real impact with our investment - for us and following generations";
 		String infoGroup3 = "We invest in the global fashion business";
-		groups.add(new Group(1,"New Technology Club", infoGroup1, group, "m", 100, "7d 18h", "2016-03-13", 400));
-		groups.add(new Group(2,"Renewable Energies",infoGroup2, group2, "m", "5d 18h", "2016-02-17"));
-		groups.add(new Group(3,"Fashion", infoGroup3, group3, "m", "27d 18h", "2016-05-27"));
+
+		groups.add(new Group(1,"New Technology Club", infoGroup1, group, "monthly", 100, "7d 18h", "2016-03-13", 400));
+		groups.add(new Group(2,"Renewable Energies",infoGroup2, group2, "weekly", "5d 18h", "2016-02-17"));
+		groups.add(new Group(3,"Fashion", infoGroup3, group3, "monthly", "27d 18h", "2016-05-27"));
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
