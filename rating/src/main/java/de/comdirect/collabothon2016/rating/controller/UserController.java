@@ -55,7 +55,7 @@ public class UserController {
 
 		groups.add(new Group(1,"New Technology Club", infoGroup1, group, "monthly", 100, "7d 18h", "2016-03-13", 400));
 		groups.add(new Group(2,"Renewable Energies",infoGroup2, group2, "weekly", "5d 18h", "2016-02-17"));
-		groups.add(new Group(3,"Fashion", infoGroup3, group3, "monthly", "27d 18h", "2016-05-27"));
+		groups.add(new Group(3,"Fashion & Luxury Goods", infoGroup3, group3, "monthly", "27d 18h", "2016-05-27"));
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
