@@ -90,18 +90,35 @@ public class Fallback {
 		entry.setNutzerId(1);
 		entry.setPerformance(12.21);
 		entry.setPosition(1);
+		entry.setName("Walter");
 		leaderBoard.add(entry);
 
 		entry = new LeaderBoardEntry();
 		entry.setNutzerId(2);
 		entry.setPerformance(9.7);
 		entry.setPosition(2);
+		entry.setName("Wilhelm");
 		leaderBoard.add(entry);
 
 		entry = new LeaderBoardEntry();
 		entry.setNutzerId(3);
 		entry.setPerformance(-2.3);
 		entry.setPosition(3);
+		entry.setName("Gabi");
+		leaderBoard.add(entry);
+		
+		entry = new LeaderBoardEntry();
+		entry.setNutzerId(4);
+		entry.setPerformance(-2.9);
+		entry.setPosition(4);
+		entry.setName("Katja");
+		leaderBoard.add(entry);
+		
+		entry = new LeaderBoardEntry();
+		entry.setNutzerId(4);
+		entry.setPerformance(-3.3);
+		entry.setPosition(4);
+		entry.setName("Richard");
 		leaderBoard.add(entry);
 		
 		HashMap<Long,List<LeaderBoardEntry>> allBoards = new HashMap<Long,List<LeaderBoardEntry>>();
