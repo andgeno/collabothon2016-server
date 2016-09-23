@@ -43,6 +43,7 @@ public class Group {
 		this.id = id;
 		this.userScores = usersScores;
 		this.groupname=groupname;
+		user = userScores.keySet().stream().collect(Collectors.toList());
 	}
 	
 	public List<Nutzer> getUser() {
