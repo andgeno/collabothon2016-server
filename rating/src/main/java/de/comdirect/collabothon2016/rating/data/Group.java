@@ -35,6 +35,7 @@ public class Group {
 		this.nextPeriod = nextPeriod; 
 		this.investingSince=investingSince; 
 		this.amount_overall = amount_overall;
+		this.description=description;
 		user = userScores.keySet().stream().collect(Collectors.toList());
 	}
 
