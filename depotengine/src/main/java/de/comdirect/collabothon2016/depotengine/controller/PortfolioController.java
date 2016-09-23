@@ -3,14 +3,17 @@ package de.comdirect.collabothon2016.depotengine.controller;
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.KeyStore;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.jackson.JsonObjectDeserializer;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -85,21 +88,21 @@ public class PortfolioController {
 	
 	@RequestMapping(method=RequestMethod.GET, path="/portfolio/{groupid}/payment")
 	public ResponseEntity<Map<Long, Boolean>> getPaymentStatus(@PathVariable(value="groupid") long groupId){
-		
-		List<NutzerFromServerTO> attendees = restOperations.getForObject(DepotengineRestConnections.URL + "/" + groupId + DepotengineRestConnections.PATH_GET_ATTENDIES, List.class);
+		ResponseEntity<NutzerFromServerTO[]> result = restOperations.getForEntity(DepotengineRestConnections.URL_USER + "/groups/" + groupId + DepotengineRestConnections.PATH_GET_ATTENDIES, NutzerFromServerTO[].class);
+		NutzerFromServerTO[] body = result.getBody();
 		Map<Long, Boolean> paymentStatus = new HashMap<>();
-		
 		boolean hasPayed = RestClient.checkPayment(groupId);
 		boolean aktuellePositionSetzen = true;
-		for (NutzerFromServerTO nutzerTo : attendees){
+		for (NutzerFromServerTO b : body){
 			if (aktuellePositionSetzen){
-				paymentStatus.put(nutzerTo.getNutzerId(), hasPayed);
+				paymentStatus.put(b.getNutzerId(), hasPayed);
 				aktuellePositionSetzen = false;
 			}else{
-				paymentStatus.put(nutzerTo.getNutzerId(), true);
+				paymentStatus.put(b.getNutzerId(), true);
+				
 			}
+			System.out.println("" + b.toString());
 		}
-		
 		
 		return new ResponseEntity<>(paymentStatus, HttpStatus.OK);
 	}

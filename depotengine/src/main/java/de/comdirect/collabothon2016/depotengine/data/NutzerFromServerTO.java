@@ -6,6 +6,8 @@ public class NutzerFromServerTO {
 	private String name;
 	private long globalScore;
 	
+	public NutzerFromServerTO(){}
+	
 	public NutzerFromServerTO(long nutzerId, long globalScore, String name){
 		this.nutzerId=nutzerId;
 		this.globalScore=globalScore;
@@ -41,4 +43,11 @@ public class NutzerFromServerTO {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	@Override
+	public String toString() {
+		return "NutzerFromServerTO [nutzerId=" + nutzerId + ", name=" + name + ", globalScore=" + globalScore + "]";
+	}
+	
+	
 }
