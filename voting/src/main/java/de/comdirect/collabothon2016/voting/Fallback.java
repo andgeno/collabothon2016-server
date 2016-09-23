@@ -63,9 +63,23 @@ public class Fallback {
 		suggestion5.setVotes(1);
 		investmentSuggestions.add(suggestion5);
 		
+		
 		HashMap<Long,List<InvestmentSuggestion>> s = new HashMap<Long,List<InvestmentSuggestion>>();
 		investmentSuggestions.add(suggestion);
 		s.put(1L, investmentSuggestions);
+		
+		List<InvestmentSuggestion> investmentSuggestions2 = new ArrayList<>();
+
+		InvestmentSuggestion suggestion6 = new InvestmentSuggestion();
+		suggestion6.setTitle("LVMH");
+		suggestion6.setWertpapier("FR0000121014");
+		suggestion6.setComment("I see high potential for LVMH");
+		suggestion6.setUserId(2);
+		suggestion6.setVotes(2);
+		investmentSuggestions2.add(suggestion);
+		
+		s.put(3L, investmentSuggestions);
+		
 		return s;
 	}
 
