@@ -12,6 +12,8 @@ public class InvestmentSuggestion {
 	
 	private long votes;
 	
+	private String wertpapier;
+	
 	
 	public InvestmentSuggestion(){
 		votes = 0;
@@ -59,5 +61,13 @@ public class InvestmentSuggestion {
 
 	public void setIndexInVote(long indexInVote) {
 		this.indexInVote = indexInVote;
+	}
+
+	public String getWertpapier() {
+		return wertpapier;
+	}
+
+	public void setWertpapier(String wertpapier) {
+		this.wertpapier = wertpapier;
 	}
 }

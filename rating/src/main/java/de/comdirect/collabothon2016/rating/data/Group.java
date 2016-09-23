@@ -24,27 +24,42 @@ public class Group {
 	private String nextPeriod;
 	private String investingSince;
 	private long amount_overall;
-	
-	
-	public Group(long id,String groupname, Map<Nutzer,GroupScore> userScores, String interval, int amount, String nextPeriod, String investingSince, long amount_overall){
+	private String description;
+
+	public Group(long id,String groupname, String description, Map<Nutzer,GroupScore> userScores, String interval, int amount, String nextPeriod, String investingSince, long amount_overall){
 		this.id = id;
 		this.groupname=groupname;
 		this.userScores = userScores;
 		this.interval=interval;
 		this.amount=amount;
-		this.nextPeriod = nextPeriod;
-		this.investingSince=investingSince;
+		this.nextPeriod = nextPeriod; 
+		this.investingSince=investingSince; 
 		this.amount_overall = amount_overall;
+		this.description=description;
 		user = userScores.keySet().stream().collect(Collectors.toList());
 	}
 
 	
-	public Group(long id,String groupname, Map<Nutzer,GroupScore> usersScores){
+	public Group(long id,String groupname,String description, Map<Nutzer,GroupScore> usersScores, String interval, String nextPeriod, String investingSince){
 		this.id = id;
 		this.userScores = usersScores;
 		this.groupname=groupname;
+		this.interval=interval;
+		this.nextPeriod=nextPeriod;
+		this.investingSince=investingSince;
+		this.description=description;
 		user = userScores.keySet().stream().collect(Collectors.toList());
 	}
+	
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	
 	public List<Nutzer> getUser() {
 		return user;

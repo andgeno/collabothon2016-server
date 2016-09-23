@@ -4,9 +4,20 @@ import org.springframework.web.client.RestTemplate;
 
 public class RestClient {
 	
-	public static String askRating(){
+	static String addr="0xfc7bc586b4f3e9c1dfcb4ebaf97dd397f5a2514b";
+	
+	public static String makePayment(long userId){
         RestTemplate restTemplate = new RestTemplate();
-        Long rating = restTemplate.getForObject("http://localhost:8090/users/rank/123", Long.class);
-        return ("Hey I am a Restclient and i called Rating" + rating);
+        String address = restTemplate.getForObject("http://172.31.124.69:1337/pay/" + addr, String.class);
+//        String address = restTemplate.getForObject("http://127.0.0.1:1337/pay/" + addr, String.class);
+        return (address);
+	}
+	
+	public static boolean checkPayment(long userId){
+        RestTemplate restTemplate = new RestTemplate();
+        boolean check = restTemplate.getForObject("http://172.31.124.69:1337/check/" + addr, Boolean.class); // 172.31.124.69
+//        boolean check = restTemplate.getForObject("http://127.0.0.1:1337/check/" + addr, Boolean.class); // 172.31.124.69
+        return check;
+//        return ("Hey i am calling the Blockchain " + check);
 	}
 }

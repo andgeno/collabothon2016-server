@@ -10,6 +10,8 @@ public class Voting {
 	private String groupId;
 	
 	private boolean active;
+	
+	private boolean waitingVorContracts;
 
 	public List<InvestmentSuggestion> getInvestmentSuggestions() {
 		return investmentSuggestions;
@@ -33,6 +35,14 @@ public class Voting {
 
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+
+	public boolean isWaitingVorContracts() {
+		return waitingVorContracts;
+	}
+
+	public void setWaitingVorContracts(boolean waitingVorContracts) {
+		this.waitingVorContracts = waitingVorContracts;
 	}
 	
 	
