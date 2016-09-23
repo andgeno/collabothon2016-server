@@ -41,7 +41,7 @@ public class Fallback {
 		
 		InvestmentSuggestion suggestion3 = new InvestmentSuggestion();
 		suggestion3.setTitle("GoPro");
-		suggestion3.setWertpapier("US88160R1014");
+		suggestion3.setWertpapier("US38268T1034");
 		suggestion3.setComment("Technical long momentum impulse");
 		suggestion3.setUserId(2);
 		suggestion3.setVotes(1);
