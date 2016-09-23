@@ -108,7 +108,7 @@ public class Fallback {
 		
 		
 		
-		return null;
+		return allBoards;
 	}
 	
 	public static Map<Long, Voting> getVoting(HashMap<Long, List<InvestmentSuggestion>> suggestions){
