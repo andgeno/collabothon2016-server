@@ -12,3 +12,16 @@ contract singlePerson {
         return money != 0;
     }
 }
+
+var singlepersonContract = web3.eth.contract([{"constant":false,"inputs":[],"name":"pay","outputs":[],"payable":true,"type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"check","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"inputs":[],"type":"constructor"}]);
+var singleperson = singlepersonContract.new(
+   {
+     from: web3.eth.accounts[0], 
+     data: '606060405260006001600050555b33600060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908302179055505b610156806100476000396000f360606040526000357c0100000000000000000000000000000000000000000000000000000000900480631b9265b81461005257806341c0e1b514610061578063919840ad146100755761004d565b610002565b61005f600480505061009f565b005b346100025761007360048050506100ac565b005b34610002576100876004805050610140565b60405180821515815260200191505060405180910390f35b346001600050819055505b565b600060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16141561013d57600060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b5b565b6000600060016000505414159050610153565b9056', 
+     gas: 2000000
+   }, function (e, contract){
+    console.log(e, contract);
+    if (typeof contract.address !== 'undefined') {
+         console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
+    }
+ })
