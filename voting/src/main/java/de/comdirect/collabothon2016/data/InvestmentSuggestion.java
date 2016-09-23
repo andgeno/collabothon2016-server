@@ -4,11 +4,18 @@ public class InvestmentSuggestion {
 	
 	private long userId;
 	
+	private long indexInVote;
+	
 	private String title;
 	
 	private String comment;
 	
 	private long votes;
+	
+	
+	public InvestmentSuggestion(){
+		votes = 0;
+	}
 
 	public long getUserId() {
 		return userId;
@@ -42,4 +49,15 @@ public class InvestmentSuggestion {
 		this.votes = votes;
 	}
 
+	public void addVote(){
+		this.votes++;
+	}
+
+	public long getIndexInVote() {
+		return indexInVote;
+	}
+
+	public void setIndexInVote(long indexInVote) {
+		this.indexInVote = indexInVote;
+	}
 }
