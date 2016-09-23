@@ -49,9 +49,9 @@ public class UserController {
 		
 		String infoGroup1 = "We want to invest in renewable resources. This is so awesome to do, really";
 		String infoGroup3 = "We don't care about the environment, we are in it for the money";
-		groups.add(new Group(1,"The Great Investor Collective", infoGroup1, group, "m", 100, "7d 18h 35m 14s", "2016-03-17", 400));
-		groups.add(new Group(2,"Secret Investments", "Confidential", group2, "m", "7d 18h 35m 14s", "2016-03-17"));
-		groups.add(new Group(3,"Happy go lucky fellows", infoGroup3, group3, "m", "7d 18h 35m 14s", "2016-03-17"));
+		groups.add(new Group(1,"The Great Investor Collective", infoGroup1, group, "monthly", 100, "7d 18h 35m 14s", "2016-03-17", 400));
+		groups.add(new Group(2,"Secret Investments", "Confidential", group2, "monthly", "7d 18h 35m 14s", "2016-03-17"));
+		groups.add(new Group(3,"Happy go lucky fellows", infoGroup3, group3, "monthly", "7d 18h 35m 14s", "2016-03-17"));
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
