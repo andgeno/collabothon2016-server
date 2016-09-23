@@ -1,0 +1,35 @@
+contract singlePerson {
+    
+    event testEvent(
+        string s
+    );
+    
+    address owner;
+    function singlePerson() { owner = msg.sender; }
+    function kill() { if (msg.sender == owner) selfdestruct(owner); }
+    
+    uint public money;
+    bool public goal = false;
+    uint public amount;
+    mapping (address => uint) public balances;
+    
+    function payMoney() public returns (uint) {
+        goal = true;
+        balances[msg.sender] = msg.value;
+        
+        testEvent("Mein Event!");
+        
+        amount = msg.value;
+        money = msg.value;
+        return msg.value;
+    }
+    
+    function paid() public constant returns (bool){
+        goal = true;
+        return goal;
+    }
+    
+    function check() public constant returns (bool){
+        return goal;
+    }
+}
