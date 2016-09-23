@@ -60,7 +60,7 @@ public class VotingControler {
 	   @RequestMapping(method=RequestMethod.GET, path="/voting/leaderboard/group/{groupid}")
 	   public ResponseEntity<List<LeaderBoardEntry>> getLeaderboard(@PathVariable(value="groupid") long groupid)
 	   {  
-			return new ResponseEntity<List<LeaderBoardEntry>>(leaderBoard.get(groupid), HttpStatus.ACCEPTED);
+			return new ResponseEntity<List<LeaderBoardEntry>>(leaderBoard.get(0), HttpStatus.ACCEPTED);
 	   }
 	   
 	   
