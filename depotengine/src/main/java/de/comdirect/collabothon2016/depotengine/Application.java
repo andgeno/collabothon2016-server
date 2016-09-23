@@ -6,6 +6,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import de.comdirect.collabothon2016.depotengine.controller.RestClient;
+
 @SpringBootApplication
 public class Application {
 
@@ -19,6 +21,7 @@ public class Application {
       for (String beanName : beanNames) {
          System.out.println(beanName);
       }
+      System.out.println(RestClient.askRating() + "wow");
    }
 
 }
