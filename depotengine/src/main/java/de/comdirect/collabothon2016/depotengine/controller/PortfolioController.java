@@ -28,6 +28,7 @@ import org.springframework.web.client.RestTemplate;
 import de.comdirect.collabothon2016.depotengine.DepotengineRestConnections;
 import de.comdirect.collabothon2016.depotengine.data.DepotuserCredentials;
 import de.comdirect.collabothon2016.depotengine.data.Fallback;
+import de.comdirect.collabothon2016.depotengine.data.NutzerFromServerTO;
 import de.comdirect.collabothon2016.depotengine.data.Portfolio;
 import de.comdirect.collabothon2016.depotengine.data.PortfolioInformationFromServerTO;
 import de.comdirect.collabothon2016.depotengine.data.PortfolioPosition;
@@ -80,6 +81,27 @@ public class PortfolioController {
 	public ResponseEntity<Void> makePayment(@PathVariable(value="groupid") long groupId){
 		RestClient.makePayment(groupId);
 		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+	@RequestMapping(method=RequestMethod.GET, path="/portfolio/{groupid}/payment")
+	public ResponseEntity<Map<Long, Boolean>> getPaymentStatus(@PathVariable(value="groupid") long groupId){
+		
+		List<NutzerFromServerTO> attendees = restOperations.getForObject(DepotengineRestConnections.URL + "/" + groupId + DepotengineRestConnections.PATH_GET_ATTENDIES, List.class);
+		Map<Long, Boolean> paymentStatus = new HashMap<>();
+		
+		boolean hasPayed = RestClient.checkPayment(groupId);
+		boolean aktuellePositionSetzen = true;
+		for (NutzerFromServerTO nutzerTo : attendees){
+			if (aktuellePositionSetzen){
+				paymentStatus.put(nutzerTo.getNutzerId(), hasPayed);
+				aktuellePositionSetzen = false;
+			}else{
+				paymentStatus.put(nutzerTo.getNutzerId(), true);
+			}
+		}
+		
+		
+		return new ResponseEntity<>(paymentStatus, HttpStatus.OK);
 	}
 	
 	/**
